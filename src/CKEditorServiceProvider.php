@@ -29,6 +29,11 @@ class CKEditorServiceProvider extends ServiceProvider
         }
 
         Admin::booting(function () {
+            $config = (array) CKEditor::config('config');
+            Admin::style(".ck-editor__editable_inline:not(.ck-comment__input *) {
+                min-height: {$config['height']}px;
+                overflow-y: auto;
+            }");
             Form::extend('ckeditor', Editor::class);
         });
     }

@@ -23,9 +23,6 @@ class Editor extends Textarea
         $this->script = <<<EOT
             ClassicEditor
             .create(document.getElementById('{$this->id}') , $config)
-            .then(editor => {
-                $('<style type="text/css" scoped>.ck-editor .ck-editor__editable_inline {min-height: 400px !important;}</style>').insertAfter('#{$this->id}');
-            })
             .catch(error => {
                 console.error(error);
             });
